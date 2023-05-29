@@ -1,0 +1,36 @@
+<p>details works!</p>
+<div class="container">
+  <hr />
+  <table class="table-border table">
+      <thead>
+          <tr>
+              <th>STT</th>
+              <th>Tên</th>
+              <th>Giá</th>
+              <th></th>
+          </tr>
+      </thead>
+      <tbody>
+          <!-- ${product.map(item => <tr>${item.name}</tr>)} -->
+          <tr *ngFor="let item of products; index as i">
+              <td width="50">{{ i + 1 }}</td>
+              <td>{{ item.name }}</td>
+              <td>{{ item.price }}</td>
+              <td>
+                <button
+                >
+                    <a href="admin/product/{{item.id}}/edit">sửa</a> 
+                </button>
+            </td>
+              <td>
+                  <button
+                      class="btn btn-danger"
+                      (click)="removeItem(item.id!)"
+                  >
+                      Xóa
+                  </button>
+              </td>
+          </tr>
+      </tbody>
+  </table>
+</div>
